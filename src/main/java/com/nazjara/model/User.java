@@ -1,6 +1,9 @@
 package com.nazjara.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
+import java.util.Map;
 
 public class User implements Serializable {
     private final static long serialVersionUID = 1L;
@@ -17,6 +20,12 @@ public class User implements Serializable {
     private Billing billing;
     private String language;
     private String currency;
+
+    @JsonProperty("name")
+    private void unpackFirstName(Map<String,Object> name) {
+        this.firstName = (String) name.get("first");
+        this.lastName = (String) name.get("last");
+    }
 
     public Gender getGender() {
         return gender;

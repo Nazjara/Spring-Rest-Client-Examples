@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -16,14 +17,14 @@ import org.springframework.web.reactive.function.BodyInserters;
 @SpringBootTest
 public class UserControllerTest {
 
-    @Autowired
-    UserController userController;
+   @Autowired
+   private ApplicationContext applicationContext;
 
     WebTestClient webTestClient;
 
     @Before
     public void setUp() {
-        webTestClient = WebTestClient.bindToController(userController).build();
+        webTestClient = WebTestClient.bindToApplicationContext(applicationContext).build();
     }
 
     @Test
@@ -36,9 +37,9 @@ public class UserControllerTest {
     @Test
     public void testFormPost() throws Exception {
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-        formData.add("limit", "3");
+        formData.add("limit", "1");
 
-        webTestClient.post().uri("users")
+        webTestClient.post().uri("/users")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(formData))
                 .exchange()

@@ -1,7 +1,9 @@
 package com.nazjara.service;
 
-import com.nazjara.model.UserData;
+import com.nazjara.model.User;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface UserService {
-    UserData getUsers(Integer limit);
+    Flux<User> getUsers(Mono<Integer> limit);
 }

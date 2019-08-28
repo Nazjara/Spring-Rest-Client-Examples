@@ -37,8 +37,8 @@
                             </tr>
                             </thead>
                             <tr th:each="user : ${users}">
-                                <td th:text="${user.name.first}"></td>
-                                <td th:text="${user.name.last}"></td>
+                                <td th:text="${user.firstName}"></td>
+                                <td th:text="${user.lastName}"></td>
                                 <td th:text="${user.gender}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.language}"></td>
