@@ -1,7 +1,6 @@
 package com.nazjara.service;
 
 import com.nazjara.model.UserData;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +11,14 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApiServiceImplTest {
+public class UserServiceImplTest {
 
     @Autowired
-    ApiService apiService;
+    UserService userService;
 
     @Test
     public void testGetUsers() throws Exception {
-        UserData userData = apiService.getUsers(1);
+        UserData userData = userService.getUsers(1);
 
         assertEquals(1, userData.getData().size());
     }
