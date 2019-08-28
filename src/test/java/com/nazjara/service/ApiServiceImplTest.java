@@ -19,8 +19,8 @@ public class ApiServiceImplTest {
 
     @Test
     public void testGetUsers() throws Exception {
-        UserData userData = apiService.getUsers(3);
+        UserData userData = apiService.getUsers(1);
 
-        assertEquals(4, userData.getData().size());
+        assertEquals(1, userData.getData().size());
     }
 }
