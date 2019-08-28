@@ -9,6 +9,7 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String title;
+    private Location location;
     private String email;
     private Login login;
     private String phone;
@@ -47,6 +48,14 @@ public class User implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String getEmail() {
